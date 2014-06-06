@@ -8,6 +8,10 @@ class ClueTest < Minitest::Unit::TestCase
    	@clue = Clue.new(@clue_attr)
 	end
 
+	def teardown
+		@clue.destroy
+	end
+
 	def test_generate_text
 		refute_nil @clue.generate_text 
 		assert_equal 'Gem has version: 0.0.1', @clue.generate_text
