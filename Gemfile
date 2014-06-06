@@ -4,6 +4,7 @@ gem 'sinatra'
 gem 'haml'
 gem 'mongoid'
 gem 'gems'
+gem 'whenever', :require => false
 
 group :test do
 	gem 'mongoid-minitest'
