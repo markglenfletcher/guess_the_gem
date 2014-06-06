@@ -1,3 +1,5 @@
+require_relative '../test_helper'
+
 class ClueTest < Minitest::Unit::TestCase
 	def setup
    	@clue_attr = {
