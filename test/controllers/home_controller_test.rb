@@ -49,4 +49,14 @@ class TestHomeController < Minitest::Unit::TestCase
 		get '/noexistalso'
 		assert_includes last_response.body, 'The resource you were looking for could not be found.'
 	end
+
+	def test_js_response
+		get '/main.js'
+		assert last_response.ok?
+	end
+
+	def test_css_response
+		get '/main.css'
+		assert last_response.ok?
+	end
 end

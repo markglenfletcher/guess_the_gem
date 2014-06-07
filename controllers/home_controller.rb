@@ -17,4 +17,12 @@ class GuessTheGem < Sinatra::Application
 	not_found do
 		haml :not_found
 	end
+
+	get '/main.css' do
+		sass :main
+	end
+
+	get '/main.js' do
+		coffee :main
+	end
 end
