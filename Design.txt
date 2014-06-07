@@ -2,14 +2,14 @@ Design
 
 Navigate to guessthegem.markglenfletcher.co.uk
 Start Game
-3 gems are chosen and sent to browser
+*3 gems are chosen and sent to browser
 Javascript game initiated
 *Each gem has a list of letters
 *Each gem generates a list of letters to guess from
 	If a correct guess is made the letter is exposed
 *Each gem has a list of clues
-	User can request a new clue AJAX it /gems/:id/clue
-		Clue is sent back to browser
+*	User can request a new clue AJAX it /gems/:id/clue
+*		Clue is sent back to browser
 
 Gem object
 	Contains data
