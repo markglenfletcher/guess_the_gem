@@ -8,6 +8,7 @@ gem 'whenever', :require => false
 
 group :test do
 	gem 'mongoid-minitest'
+	gem 'rack-test'
 end
 
 group :development do

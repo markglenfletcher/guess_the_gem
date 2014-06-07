@@ -1,8 +1,9 @@
-require 'minitest/autorun'
-require 'mongoid'
-require 'mongoid-minitest'
+ENV['RACK_ENV'] = 'test'
 
-Dir["#{File.dirname(__FILE__)}/../models/*.rb"].each { |f| require f }
+require 'minitest/autorun'
+require 'rack/test'
+
+require_relative '../app.rb'
 
 Mongoid.configure do |config|
   config.connect_to 'guess-the-gem-test'
