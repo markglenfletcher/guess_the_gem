@@ -13,9 +13,9 @@ end
 
 namespace :harvest do
 	task :jems do
-		# Mongoid.configure do |config|
-  # 		config.connect_to 'guess-the-gem-dev'
-		# end
+		Mongoid.configure do |config|
+  		config.connect_to 'guess-the-gem-dev'
+		end
 
 		latest = Gems.latest
 		latest.each do |gem_hash|
