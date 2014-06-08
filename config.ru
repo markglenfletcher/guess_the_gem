@@ -1,10 +1,9 @@
 require './app.rb'
 
-ENV['RACK_ENV'] = 'development'
-
 Mongoid.configure do |config|
-	config.connect_to 'guess-the-gem-development' if ENV['RACK_ENV'] = 'development'
-	config.connect_to 'guess-the-gem' if ENV['RACK_ENV'] = 'production'	
+	db = 'guess-the-gem'
+	db = 'guess-the-gem-dev' if ENV['RACK_ENV'] == 'development'
+	config.connect_to db
 end
 
 run GuessTheGem

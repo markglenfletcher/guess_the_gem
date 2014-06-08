@@ -1,0 +1,16 @@
+#jems
+	- @jems.each do |jem|
+		%article.jem{:id => jem.id.to_s}
+			.letters
+				%ul.name-letter-list.letter-list
+					- jem.name.each_char do |letter|
+						%li.letter.hidden{:data => {:id => letter.hash} }= letter.upcase
+			.clues
+				%h2 Clues
+				%ol.clue-list
+					- jem.random_clues.each do |clue|
+						%li.clue= clue.text
+			.guesses
+				%ul.guess-letter-list.letter-list
+					- jem.letter_list.shuffle.each do |letter|
+						%li.letter.unguessed{:data => {:id => letter.hash}}= letter.upcase
