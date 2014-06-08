@@ -14,7 +14,9 @@ end
 namespace :harvest do
 	task :jems do
 		Mongoid.configure do |config|
-  		config.connect_to 'guess-the-gem-dev'
+			db = 'guess-the-gem'
+			db = 'guess-the-gem-dev' if ENV['RACK_ENV'] == 'development'
+			config.connect_to db
 		end
 
 		latest = Gems.latest
