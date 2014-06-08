@@ -7,6 +7,7 @@ gem 'coffee-script'
 gem 'mongoid'
 gem 'gems'
 gem 'whenever', :require => false
+gem 'rake'
 
 group :test do
 	gem 'mongoid-minitest'
