@@ -1,0 +1,19 @@
+!!!
+%html
+	%head
+		%title Guess The Gem
+		%meta{:name => 'description', :content => 'Guess the name of the ruby gem from the letters and clues provided'}
+		%link{:rel => 'author', :href => 'http://markglenfletcher.co.uk'}
+		%link{:rel => 'publisher', :href => 'http://umamiweb.co.uk'}
+		%meta{:property => 'og:title', :content => 'Guess the Gem - A ruby game'}
+		%meta{:property => 'og:type', :content => 'website'}
+		%meta{:property => 'og:url', :content => 'http://guessthegem.markglenfletcher.co.uk'}
+		%meta{:property => 'og:description', :content => 'Guess the name of the ruby gem from the letters and clues provided'}
+		%link{:href => '/main.css', :rel => 'stylesheet', :type => 'text/css'}
+		%script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
+		%script(src="/main.js")
+	%body
+		%section#game
+			%h1 Guess the Gem
+			%p Try to guess which the rubygems by unscrambling the name or recognising the clues
+			= yield
