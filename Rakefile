@@ -12,33 +12,33 @@ Rake::TestTask.new do |t|
 end
 
 namespace :harvest do
-	task :jems do
-		Mongoid.configure do |config|
-			db = 'guess-the-gem'
-			db = 'guess-the-gem-dev' if ENV['RACK_ENV'] == 'development'
-			config.connect_to db
-		end
+  task :jems do
+    Mongoid.configure do |config|
+      db = 'guess-the-gem'
+      db = 'guess-the-gem-dev' if ENV['RACK_ENV'] == 'development'
+      config.connect_to db
+    end
 
-		latest = Gems.latest
-		latest.each do |gem_hash|
-			dependencies = []
-			gem_hash['dependencies'].keys.each do |key|
-				gem_hash['dependencies'][key].each do |item|
-					dependencies << item['name'] if item['name']
-				end
-			end
+    latest = Gems.latest
+    latest.each do |gem_hash|
+      dependencies = []
+      gem_hash['dependencies'].keys.each do |key|
+        gem_hash['dependencies'][key].each do |item|
+          dependencies << item['name'] if item['name']
+        end
+      end
 
-			jem_attr = {
-				:name => gem_hash['name'],
-				:version => gem_hash['version'],
-				:downloads => gem_hash['version_downloads'],
-				:platform => gem_hash['platform'],
-				:authors => [gem_hash['authors']].flatten,
-				:info => gem_hash['info'],
-				:dependencies => dependencies
-			}
-			jem = Jem.new(jem_attr)
-			jem.save! if jem.valid?
-		end
-	end
+      jem_attr = {
+        :name => gem_hash['name'],
+        :version => gem_hash['version'],
+        :downloads => gem_hash['version_downloads'],
+        :platform => gem_hash['platform'],
+        :authors => [gem_hash['authors']].flatten,
+        :info => gem_hash['info'],
+        :dependencies => dependencies
+      }
+      jem = Jem.new(jem_attr)
+      jem.save! if jem.valid?
+    end
+  end
 end

@@ -1,28 +1,28 @@
 class GuessTheGem < Sinatra::Application
-	get '/' do
-		@jems = Jem.sample(3)
-		haml :index
-	end
+  get '/' do
+    @jems = Jem.sample(3)
+    haml :index
+  end
 
-	before '/jems/:id/clues' do
-		halt "Invalid ID" unless Jem.where(:id => params[:id]).count > 0
-	end
+  before '/jems/:id/clues' do
+    halt "Invalid ID" unless Jem.where(:id => params[:id]).count > 0
+  end
 
-	get '/jems/:id/clues' do
-		@jem = Jem.find(params[:id])
-		@clues = @jem.clues
-		haml :clues
-	end
+  get '/jems/:id/clues' do
+    @jem = Jem.find(params[:id])
+    @clues = @jem.clues
+    haml :clues
+  end
 
-	not_found do
-		haml :not_found
-	end
+  not_found do
+    haml :not_found
+  end
 
-	get '/main.css' do
-		sass :main
-	end
+  get '/main.css' do
+    sass :main
+  end
 
-	get '/main.js' do
-		coffee :main
-	end
+  get '/main.js' do
+    coffee :main
+  end
 end
